@@ -4,7 +4,7 @@
 ```
 cd ~/catkin_ws/src/
 
-git clone
+git clone https://github.com/KoutaOhishi/subscriber_tutorial.git
 
 cd subscriber_tutorial/
 
