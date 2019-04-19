@@ -5,39 +5,39 @@ import random
 import time
 from std_msgs.msg import String, Int32
 
-item_1_g = Int32()
-item_2_g = Int32()
-operators_g = String()
+item_1_global = Int32()
+item_2_global = Int32()
+operators_global = String()
 
 def item_1_callback(msg):
-    global item_1_g
-    item_1_g = msg
+    global item_1_global
+    item_1_global = msg
 
 def item_2_callback(msg):
-    global item_2_g
-    item_2_g = msg
+    global item_2_global
+    item_2_global = msg
 
 def operators_callback(msg):
-    global operators_g
-    operators_g = msg
+    global operators_global
+    operators_global = msg
 
 def calc():
-    if operators_g.data == "+":
-        res = item_1_g.data + item_2_g.data
-        rospy.loginfo("(%s) %s (%s) = %s"%(str(item_1_g.data),operators_g.data,str(item_2_g.data),str(res)))
+    if operators_global.data == "+":
+        res = item_1_global.data + item_2_global.data
+        rospy.loginfo("(%s) %s (%s) = %s"%(str(item_1_global.data),operators_global.data,str(item_2_global.data),str(res)))
 
-    elif operators_g.data == "-":
-        res = item_1_g.data - item_2_g.data
-        rospy.loginfo("(%s) %s (%s) = %s"%(str(item_1_g.data),operators_g.data,str(item_2_g.data),str(res)))
+    elif operators_global.data == "-":
+        res = item_1_global.data - item_2_global.data
+        rospy.loginfo("(%s) %s (%s) = %s"%(str(item_1_global.data),operators_global.data,str(item_2_global.data),str(res)))
 
-    elif operators_g.data == "*":
-        res = item_1_g.data * item_2_g.data
-        rospy.loginfo("(%s) %s (%s) = %s"%(str(item_1_g.data),operators_g.data,str(item_2_g.data),str(res)))
+    elif operators_global.data == "*":
+        res = item_1_global.data * item_2_global.data
+        rospy.loginfo("(%s) %s (%s) = %s"%(str(item_1_global.data),operators_global.data,str(item_2_global.data),str(res)))
 
-    else: #operators_g.data == "/":
-        if item_2_g.data != 0:
-            res = float(item_1_g.data) / float(item_2_g.data)
-            rospy.loginfo("(%s) %s (%s) = %s"%(str(item_1_g.data),operators_g.data,str(item_2_g.data),str(res)))
+    else: #operators_global.data == "/":
+        if item_2_global.data != 0:
+            res = float(item_1_global.data) / float(item_2_global.data)
+            rospy.loginfo("(%s) %s (%s) = %s"%(str(item_1_global.data),operators_global.data,str(item_2_global.data),str(res)))
 
 if __name__ == "__main__":
     rospy.init_node("formula_subscriber")
