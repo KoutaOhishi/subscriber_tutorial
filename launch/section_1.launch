@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="subscriber_tutorial" name="encryption_publisher" type="encryption_publisher.py" />
+</launch>

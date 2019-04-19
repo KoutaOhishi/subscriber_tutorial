@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="subscriber_tutorial" name="publisher" type="section_3_publisher.pyc" />
+</launch>
