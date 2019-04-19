@@ -12,7 +12,7 @@ import time
 from std_msgs.msg import String
 
 def callback(msg):
-    print decoder(msg.data)
+    rospy.loginfo(decoder(msg.data))
 
 
 if __name__ == "__main__":
